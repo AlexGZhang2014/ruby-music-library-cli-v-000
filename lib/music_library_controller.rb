@@ -66,17 +66,6 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
   end
 
-  describe "#play_song" do
-    it "prompts the user to choose a song from the alphabetized list output by #list_songs" do
-      allow(music_library_controller).to receive(:gets).and_return("Testing for #puts")
-
-      expect($stdout).to receive(:puts).with("Which song number would you like to play?")
-
-      allow($stdout).to receive(:puts)
-
-      music_library_controller.play_song
-    end
-
     it "accepts user input" do
       allow(music_library_controller).to receive(:gets).and_return("Testing for #gets")
 
