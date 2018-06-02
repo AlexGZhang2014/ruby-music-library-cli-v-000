@@ -19,6 +19,10 @@ class MusicLibraryController
     call unless input == "exit"
   end
   
+  def list_songs
+    Songs.all.sort
+  end
+  
   describe "#list_songs" do
     it "prints all songs in the music library in a numbered list (alphabetized by song name)" do
       expect($stdout).to receive(:puts).with("1. Thundercat - For Love I Come - dance")
