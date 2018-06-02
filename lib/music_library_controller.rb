@@ -1,26 +1,11 @@
 class MusicLibraryController
   describe "MusicLibraryController" do
-  describe "#initialize" do
-    it "accepts one argument, the path to the MP3 files to be imported" do
-      expect{ MusicLibraryController.new("./spec/fixtures/mp3s") }.to_not raise_error
-    end
     
   def initialize(path = "./db/mp3s")
     @path = path
     MusicImporter.new(@path)
   end
 
-    it "creates a new MusicImporter object, passing in the 'path' value" do
-      expect(MusicImporter).to receive(:new).with("./spec/fixtures/mp3s").and_return(double(MusicImporter, import: true))
-
-      MusicLibraryController.new("./spec/fixtures/mp3s")
-    end
-
-    it "the 'path' argument defaults to './db/mp3s'" do
-      expect(MusicImporter).to receive(:new).with("./db/mp3s").and_return(double(MusicImporter, import: true))
-
-      MusicLibraryController.new
-    end
 
     it "invokes the #import method on the created MusicImporter object" do
       music_importer = MusicImporter.new("./spec/fixtures/mp3s")
