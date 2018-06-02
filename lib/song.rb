@@ -51,14 +51,14 @@ class Song
     end
   end
   
-  def self.new_by_filename(filename)
+  def self.new_from_filename(filename)
     song_name = filename.split(" - ")[1]
     song = self.find_or_create_by_name(song_name)
     song
   end
   
-  def self.create_from_filename
-    song = self.new_by_filename(filename)
+  def self.create_from_filename(filename)
+    song = self.new_from_filename(filename)
     self.all << song
     song
   end
