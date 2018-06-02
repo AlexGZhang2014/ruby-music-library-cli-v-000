@@ -66,7 +66,7 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     input = gets.strip
     songs = Song.all.sort {|a, b| a.name <=> b.name}
-    puts "Playing #{songs[input-1]} by #{}"
+    puts "Playing #{songs[input-1]} by #{songs[input-1].artist}"
   end
 
     it "upon receiving valid input 'plays' the matching song from the alphabetized list output by #list_songs" do
