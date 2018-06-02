@@ -50,17 +50,15 @@ class MusicLibraryController
       end
     end
   end
-
-  describe "#list_songs_by_artist" do
-
-    
-    it "does nothing if no matching artist is found" do
-      allow(music_library_controller).to receive(:gets).and_return("Eel Restate")
-
-      expect($stdout).to receive(:puts).with("Please enter the name of an artist:")
-      expect($stdout).to_not receive(:puts)
-
-      music_library_controller.list_songs_by_artist
+  
+  def list_songs_by_genre
+    puts "Please enter the name of a genre:"
+    input = gets.strip
+    if Artist.all.include?(input)
+      songs = input.songs.sort {|a, b| a.name <=> b.name}
+      songs.each_with_index do |song, index|
+        puts "#{index+1}. #{song.name} - #{song.genre.name}"
+      end
     end
   end
 
