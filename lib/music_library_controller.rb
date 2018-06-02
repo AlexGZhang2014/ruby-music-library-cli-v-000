@@ -6,6 +6,8 @@ class MusicLibraryController
     end
     
   def initialize(path = "./db/mp3s")
+    MusicImporter.new(path)
+  end
 
     it "creates a new MusicImporter object, passing in the 'path' value" do
       expect(MusicImporter).to receive(:new).with("./spec/fixtures/mp3s").and_return(double(MusicImporter, import: true))
