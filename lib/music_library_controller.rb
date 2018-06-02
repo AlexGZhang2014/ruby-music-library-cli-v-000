@@ -57,7 +57,7 @@ class MusicLibraryController
     if Genre.all.include?(input)
       songs = input.songs.sort {|a, b| a.name <=> b.name}
       songs.each_with_index do |song, index|
-        puts "#{index+1}. #{song.name} - #{song.genre.name}"
+        puts "#{index+1}. #{song.artist.name} - #{song.name}"
       end
     end
   end
