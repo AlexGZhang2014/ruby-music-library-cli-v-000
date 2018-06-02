@@ -44,7 +44,9 @@ class MusicLibraryController
     puts "Please enter the name of an artist:"
     input = gets.strip
     artists = Artist.songs.sort {|a, b| a.name <=> b.name}
-    
+    artists.each_with_index do |artist, index|
+      
+    end
     
   end
 
