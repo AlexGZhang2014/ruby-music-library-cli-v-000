@@ -20,7 +20,7 @@ class MusicLibraryController
   end
   
   def list_songs
-    sorted_songs = Song.all.
+    sorted_songs = Song.all.sort {}
   end
   
   describe "#list_songs" do
