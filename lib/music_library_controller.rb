@@ -54,7 +54,7 @@ class MusicLibraryController
   def list_songs_by_genre
     puts "Please enter the name of a genre:"
     input = gets.strip
-    if Artist.all.include?(input)
+    if Genre.all.include?(input)
       songs = input.songs.sort {|a, b| a.name <=> b.name}
       songs.each_with_index do |song, index|
         puts "#{index+1}. #{song.name} - #{song.genre.name}"
@@ -63,21 +63,6 @@ class MusicLibraryController
   end
 
   describe "#list_songs_by_genre" do
-    it "prompts the user to enter a genre" do
-      allow(music_library_controller).to receive(:gets).and_return("Testing for #puts")
-
-      expect($stdout).to receive(:puts).with("Please enter the name of a genre:")
-
-      music_library_controller.list_songs_by_genre
-    end
-
-    it "accepts user input" do
-      allow(music_library_controller).to receive(:gets).and_return("Testing for #gets")
-
-      expect(music_library_controller).to receive(:gets)
-
-      music_library_controller.list_songs_by_genre
-    end
 
     it "prints all songs by a particular genre in a numbered list (alphabetized by song name)" do
       allow(music_library_controller).to receive(:gets).and_return("hip-hop")
