@@ -32,34 +32,11 @@ class MusicLibraryController
       puts "#{index+1}. #{artist.name}"
     end
   end
-
-  describe "#list_artists" do
-    it "prints all artists in the music library in a numbered list (alphabetized by artist name)" do
-      expect($stdout).to receive(:puts).with("1. Action Bronson")
-      expect($stdout).to receive(:puts).with("2. Jurassic 5")
-      expect($stdout).to receive(:puts).with("3. Real Estate")
-      expect($stdout).to receive(:puts).with("4. Thundercat")
-
-      music_library_controller.list_artists
-    end
-
-
-  describe "#list_genres" do
-    it "prints all genres in the music library in a numbered list (alphabetized by genre name)" do
-      expect($stdout).to receive(:puts).with("1. country")
-      expect($stdout).to receive(:puts).with("2. dance")
-      expect($stdout).to receive(:puts).with("3. hip-hop")
-      expect($stdout).to receive(:puts).with("4. indie")
-
-      music_library_controller.list_genres
-    end
-
-    it "is not hard-coded" do
-      expect($stdout).to receive(:puts).with("1. folk")
-      expect($stdout).to receive(:puts).with("2. indie")
-      expect($stdout).to receive(:puts).with("3. trance")
-
-      other_music_library_controller.list_genres
+  
+  def list_genres
+    genres = Genre.all.sort {|a, b| a.name <=> b.name}
+    genres.each_with_index do |genre, index|
+      puts "#{index+1}. #{genre.name}"
     end
   end
 
