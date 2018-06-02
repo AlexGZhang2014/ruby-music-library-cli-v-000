@@ -42,25 +42,12 @@ class MusicLibraryController
   
   def list_songs_by_artist
     puts "Please enter the name of an artist:"
+    input = gets.strip
+    
     
   end
 
   describe "#list_songs_by_artist" do
-    it "prompts the user to enter an artist" do
-      allow(music_library_controller).to receive(:gets).and_return("Testing for #puts")
-
-      expect($stdout).to receive(:puts).with("Please enter the name of an artist:")
-
-      music_library_controller.list_songs_by_artist
-    end
-
-    it "accepts user input" do
-      allow(music_library_controller).to receive(:gets).and_return("Testing for #gets")
-
-      expect(music_library_controller).to receive(:gets)
-
-      music_library_controller.list_songs_by_artist
-    end
 
     it "prints all songs by a particular artist in a numbered list (alphabetized by song name)" do
       Song.create_from_filename("Real Estate - Wonder Years - dream pop.mp3")
