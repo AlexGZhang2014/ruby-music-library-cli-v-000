@@ -1,6 +1,4 @@
 class Song
-  extend FindByName
-  
   attr_accessor :name
   
   attr_reader :artist, :genre
@@ -53,4 +51,17 @@ class Song
     end
   end
   
+  def self.new_by_filename(filename)
+    song_name = filename.split(" - ")[1]
+    name_of_artist = filename.split(" - ")[0]
+    song = Song.new(song_name)
+    song.artist_name = name_of_artist
+    song
+  end
+  
+  def self.create_from_filename
+    song = self.new_by_filename(filename)
+    self.all << song
+    song
+  end
 end
