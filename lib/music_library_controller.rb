@@ -64,15 +64,9 @@ class MusicLibraryController
 
   def play_song
     puts "Which song number would you like to play?"
+    input = gets.strip
+    puts "Playing #{} by #{}"
   end
-
-    it "accepts user input" do
-      allow(music_library_controller).to receive(:gets).and_return("Testing for #gets")
-
-      expect(music_library_controller).to receive(:gets)
-
-      music_library_controller.play_song
-    end
 
     it "upon receiving valid input 'plays' the matching song from the alphabetized list output by #list_songs" do
       allow(music_library_controller).to receive(:gets).and_return("4")
