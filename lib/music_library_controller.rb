@@ -25,6 +25,13 @@ class MusicLibraryController
       puts "#{index+1}. #{song.artist.name} - #{song.name} = #{song.genre.name}"
     end
   end
+  
+  def list_artists
+    artists = Artist.all.sort {|a, b| a.name <=> b.name}
+    artists.each_with_index do |artist, index|
+      puts "#{index+1}. #{artist.name}"
+    end
+  end
 
   describe "#list_artists" do
     it "prints all artists in the music library in a numbered list (alphabetized by artist name)" do
@@ -36,17 +43,6 @@ class MusicLibraryController
       music_library_controller.list_artists
     end
 
-    it "is not hard-coded" do
-      Artist.create("ZZ Top")
-
-      expect($stdout).to receive(:puts).with("1. Alpha 9")
-      expect($stdout).to receive(:puts).with("2. Bob Dylan")
-      expect($stdout).to receive(:puts).with("3. Cass McCombs")
-      expect($stdout).to receive(:puts).with("4. ZZ Top")
-
-      other_music_library_controller.list_artists
-    end
-  end
 
   describe "#list_genres" do
     it "prints all genres in the music library in a numbered list (alphabetized by genre name)" do
