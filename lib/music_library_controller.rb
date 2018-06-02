@@ -66,19 +66,10 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     input = gets.strip
     songs = Song.all.sort {|a, b| a.name <=> b.name}
-    if songs[input-1]
+    if input >= 1 && input <= songs.count && songs[input-1]
       puts "Playing #{songs[input-1]} by #{songs[input-1].artist}"
     end
   end
-
-    it "does not 'puts' anything out if a matching song is not found" do
-      allow(music_library_controller).to receive(:gets).and_return("6")
-
-      expect($stdout).to receive(:puts).with("Which song number would you like to play?")
-      expect($stdout).to_not receive(:puts)
-
-      music_library_controller.play_song
-    end
 
     it "checks that the user entered a number between 1 and the total number of songs in the library" do
       allow(music_library_controller).to receive(:gets).and_return("0")
