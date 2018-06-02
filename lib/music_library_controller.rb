@@ -20,7 +20,7 @@ class MusicLibraryController
   end
   
   def list_songs
-    Songs.all.sort.collect {|song| "#{num}. "}
+    
   end
   
   describe "#list_songs" do
