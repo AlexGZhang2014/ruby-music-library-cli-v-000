@@ -22,7 +22,7 @@ class MusicLibraryController
   def list_songs
     songs = Song.all.sort {|a, b| a.name <=> b.name}
     songs.each_with_index do |song, index|
-      
+      puts "#{index+1}. "
     end
   end
   
