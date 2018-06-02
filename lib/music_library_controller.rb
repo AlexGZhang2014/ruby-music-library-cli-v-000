@@ -16,7 +16,7 @@ class MusicLibraryController
     
     input = gets.strip
     
-    list_songs if 
+    list_songs if input == "list songs"
     
     call unless input == "exit"
   end
