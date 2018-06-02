@@ -13,7 +13,8 @@ class MusicLibraryController
     puts "To list all of the songs by a particular artist, enter 'list artist'."
     puts "To list all of the songs of a particular genre, enter 'list genre'."
     puts "To play a song, enter 'play song'."
-    puts 
+    puts "To quit, type 'exit'."
+    puts "What would you like to do?"
   end
 
   describe "#call" do
