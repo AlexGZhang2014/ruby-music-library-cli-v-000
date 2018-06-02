@@ -77,18 +77,4 @@ class MusicLibraryController
       puts "Playing #{songs[input-1].name} by #{songs[input-1].artist.name}"
     end
   end
-
-
-  
-
-  describe "'play song'" do
-    it "triggers #play_song" do
-      allow(music_library_controller).to receive(:gets).and_return("play song", "2", "exit")
-
-      expect(music_library_controller).to receive(:play_song)
-
-      capture_puts { music_library_controller.call }
-    end
-  end
-
 end
