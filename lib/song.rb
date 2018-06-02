@@ -57,6 +57,8 @@ class Song
     artist_name = song_elements[0]
     genre_name = song_elements[2]
     song = self.find_or_create_by_name(song_name)
+    artist = Artist.find_or_create_by_name(artist_name)
+    genre = Genre.find_or_create_by_name(genre_name)
     song
   end
   
