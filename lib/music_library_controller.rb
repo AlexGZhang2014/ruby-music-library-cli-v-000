@@ -21,23 +21,4 @@ class MusicLibraryController
     call unless input == "exit"
   end
 
-  describe "#call" do
-
-    it "asks the user for input" do
-      allow(music_library_controller).to receive(:gets).and_return("exit")
-
-      expect(music_library_controller).to receive(:gets)
-
-      capture_puts { music_library_controller.call }
-    end
-
-    it "loops and asks for user input until they type in exit" do
-      allow(music_library_controller).to receive(:gets).and_return("a", "b", "c", "exit")
-
-      expect(music_library_controller).to receive(:gets).exactly(4).times
-
-      capture_puts { music_library_controller.call }
-    end
-  end
-end
 end
