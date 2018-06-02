@@ -47,24 +47,11 @@ class MusicLibraryController
     songs.each_with_index do |song, index|
       puts "#{index+1}. #{song.name} - #{song.genre.name}"
     end
-    
   end
 
   describe "#list_songs_by_artist" do
 
-    it "prints all songs by a particular artist in a numbered list (alphabetized by song name)" do
-      Song.create_from_filename("Real Estate - Wonder Years - dream pop.mp3")
-
-      allow(music_library_controller).to receive(:gets).and_return("Real Estate")
-
-      expect($stdout).to receive(:puts).with("Please enter the name of an artist:")
-      expect($stdout).to receive(:puts).with("1. Green Aisles - country")
-      expect($stdout).to receive(:puts).with("2. It's Real - hip-hop")
-      expect($stdout).to receive(:puts).with("3. Wonder Years - dream pop")
-
-      music_library_controller.list_songs_by_artist
-    end
-
+    
     it "does nothing if no matching artist is found" do
       allow(music_library_controller).to receive(:gets).and_return("Eel Restate")
 
