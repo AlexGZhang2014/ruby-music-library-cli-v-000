@@ -62,26 +62,8 @@ class MusicLibraryController
     end
   end
 
-  describe "#list_songs_by_genre" do
-
-    it "prints all songs by a particular genre in a numbered list (alphabetized by song name)" do
-      allow(music_library_controller).to receive(:gets).and_return("hip-hop")
-
-      expect($stdout).to receive(:puts).with("Please enter the name of a genre:")
-      expect($stdout).to receive(:puts).with("1. Real Estate - It's Real")
-      expect($stdout).to receive(:puts).with("2. Jurassic 5 - What's Golden")
-
-      music_library_controller.list_songs_by_genre
-    end
-
-    it "does nothing if no matching genre is found" do
-      allow(music_library_controller).to receive(:gets).and_return("post-jazz")
-
-      expect($stdout).to receive(:puts).with("Please enter the name of a genre:")
-      expect($stdout).to_not receive(:puts)
-
-      music_library_controller.list_songs_by_genre
-    end
+  def play_song
+    puts "Which song number would you like to play?"
   end
 
   describe "#play_song" do
