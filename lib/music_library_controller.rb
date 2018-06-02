@@ -18,7 +18,7 @@ class MusicLibraryController
     
     input = gets.strip
     
-    
+    call unless input == "exit"
   end
 
   describe "#call" do
