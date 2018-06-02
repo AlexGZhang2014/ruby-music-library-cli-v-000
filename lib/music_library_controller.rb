@@ -4,16 +4,9 @@ class MusicLibraryController
   def initialize(path = "./db/mp3s")
     MusicImporter.new(path).import
   end
-
-
-    it "invokes the #import method on the created MusicImporter object" do
-      music_importer = MusicImporter.new("./spec/fixtures/mp3s")
-
-      expect(MusicImporter).to receive(:new).and_return(music_importer)
-      expect(music_importer).to receive(:import)
-
-      MusicLibraryController.new
-    end
+  
+  def call
+    
   end
 
   describe "#call" do
